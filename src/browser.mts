@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 import { WebmunkClientModule, registerWebmunkModule } from '@bric/webmunk-core/browser'
 import { WebmunkConfiguration } from '@bric/webmunk-core/extension'
 
