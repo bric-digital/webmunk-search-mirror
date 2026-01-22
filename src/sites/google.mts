@@ -70,6 +70,8 @@ export class WebmunkGoogleSiteBrowserModule extends WebmunkSearchSiteBrowserModu
     const query = this.extractQuery(window.location)
     const queryType = this.extractQueryType(window.location)
 
+    console.log(`google query: ${query} -- queryType: ${queryType}`)
+
     if (queryType === 'image') {
       const results = document.querySelectorAll('div[data-ved][data-ow][data-oh]')
 
@@ -154,9 +156,13 @@ export class WebmunkGoogleSiteBrowserModule extends WebmunkSearchSiteBrowserModu
     } else if (queryType === 'web') {
       const results = document.querySelectorAll('a[href][data-ved][ping]')
 
+      console.log(`google web: ${results.length}`)
+
       results.forEach(function (element) {
         const titles = element.querySelectorAll('h3')
         const cites = element.querySelectorAll('cite')
+
+        console.log(`google titles: ${titles.length}`)
 
         if (titles.length > 0 && cites.length > 0) {
           const href = element.getAttribute('href')
@@ -171,6 +177,8 @@ export class WebmunkGoogleSiteBrowserModule extends WebmunkSearchSiteBrowserModu
                 }
               })
             })
+
+            console.log(`google title: ${title}`)
 
             let citation = ''
 
@@ -187,6 +195,8 @@ export class WebmunkGoogleSiteBrowserModule extends WebmunkSearchSiteBrowserModu
                 }
               })
             })
+
+            console.log(`google citation: ${citation}`)
 
             const content = (element.parentNode.parentNode.parentNode as Element).outerHTML
 
