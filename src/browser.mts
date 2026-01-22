@@ -44,7 +44,8 @@ class SearchMirrorModule extends WebmunkClientModule {
 
         if (this.configuration === undefined) {
           this.configuration = {
-            enabled: true
+            enabled: true,
+            'secondary-sites': []
           }
         }
 
@@ -99,6 +100,8 @@ class SearchMirrorModule extends WebmunkClientModule {
               }
 
               thisSearchSite.isPrimarySite = true
+
+              console.log(`[Search Mirror] thisSearchSite: ${thisSearchSite}`)
 
               this.registerPageChangeListener(thisSearchSite.extractResults)
             } else {

@@ -66,6 +66,7 @@ export class WebmunkGoogleSiteBrowserModule extends WebmunkSearchSiteBrowserModu
   }
 
   extractResults() {
+    console.log('google extractResults')
     const query = this.extractQuery(window.location)
     const queryType = this.extractQueryType(window.location)
 
