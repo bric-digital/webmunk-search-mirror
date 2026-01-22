@@ -103,7 +103,9 @@ class SearchMirrorModule extends WebmunkClientModule {
 
               console.log(`[Search Mirror] thisSearchSite: ${thisSearchSite}`)
 
-              this.registerPageChangeListener(thisSearchSite.extractResults)
+              this.registerPageChangeListener(function() {
+                thisSearchSite.extractResults()
+              })
             } else {
               // console.log('[Search Mirror] ' + window.location.href + ' is not a search site. (primary)')
             }
