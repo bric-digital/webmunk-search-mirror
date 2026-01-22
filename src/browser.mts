@@ -45,7 +45,7 @@ class SearchMirrorModule extends WebmunkClientModule {
         if (this.configuration === undefined) {
           this.configuration = {
             enabled: true,
-            'secondary-sites': []
+            'secondary_sites': []
           }
         }
 
@@ -70,9 +70,9 @@ class SearchMirrorModule extends WebmunkClientModule {
             }
 
             console.log(`matchedSearchSiteKey[1]: ${matchedSearchSiteKey}`)
-            console.log(`this.configuration['primary-sites']: ${this.configuration['primary-sites']}`)
+            console.log(`this.configuration['primary_sites']: ${this.configuration['primary_sites']}`)
 
-            if (this.configuration['primary-sites'] !== undefined && this.configuration['primary-sites'].includes(matchedSearchSiteKey) === false) {
+            if (this.configuration['primary_sites'] !== undefined && this.configuration['primary_sites'].includes(matchedSearchSiteKey) === false) {
               matchedSearchSiteKey = null
             }
 
