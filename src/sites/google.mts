@@ -10,11 +10,11 @@ export class WebmunkGoogleSiteBrowserModule extends WebmunkSearchSiteBrowserModu
       return false
     }
 
-    if (location.includes('/uviewer')) {
+    if (url.href.includes('/uviewer')) {
       return false
     }
 
-    const searchQuery = this.extractQuery(location)
+    const searchQuery = this.extractQuery(url.href)
 
     console.log(`google searchQuery: ${searchQuery}`)
 
