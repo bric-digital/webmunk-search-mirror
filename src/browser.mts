@@ -50,6 +50,8 @@ class SearchMirrorModule extends WebmunkClientModule {
 
         this.mutationObserver.observe(document, {subtree: true, childList: true});
 
+        console.log(`this.configuration.enabled: ${this.configuration.enabled}`)
+
         if (this.configuration.enabled) {
           if (window.location === window.parent.location) { // Top frame
             let matchedSearchSiteKey = null
@@ -60,9 +62,14 @@ class SearchMirrorModule extends WebmunkClientModule {
               }
             }
 
+            console.log(`matchedSearchSiteKey[1]: ${matchedSearchSiteKey}`)
+            console.log(`this.configuration['primary-sites']: ${this.configuration['primary-sites']}`)
+
             if (this.configuration['primary-sites'] !== undefined && this.configuration['primary-sites'].includes(matchedSearchSiteKey) === false) {
               matchedSearchSiteKey = null
             }
+
+            console.log(`matchedSearchSiteKey[2]: ${matchedSearchSiteKey}`)
 
             if (matchedSearchSiteKey !== null) {
               console.log('[Search Mirror] ' + window.location.href + ' is a search site (primary).')
